@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+        <title>Reusable Form Demo</title>
+</head>
+<body>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message[1] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+<h2>Stock Plot App</h2>
+<p> Please choose your stock and it's features to plot:</p>
+
+<form action="" method="post">
+{{ form.csrf }}
+
+	<div class="input text">
+  		<input type="text" name="name" placeholder="GOOGL"><br>
+        </div>
+
+
+<input type="checkbox" name="box" value="Close" checked>Closing price
+
+<input type="checkbox" name="box" value="Adj. Close" checked>Adjusted closing price 
+
+<input type="checkbox" name="box" value="Open" checked>Opening price
+
+<input type="checkbox" name="box" value="Adj. Open" checked>Adjusted opening price
+
+
+<br>
+
+<div class="input submit">
+<input type="submit" value="Submit" />
+</div>
+
+</form>
+
+{{ script|safe }}
+{{ div|safe }}
+
+
+
+</body>
+</html>
